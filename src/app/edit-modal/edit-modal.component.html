@@ -1,0 +1,94 @@
+<div class="modal {{ isModalOpen && 'is-active' }}">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Edit product</p>
+      <button
+        class="delete"
+        aria-label="close"
+        (click)="onCloseModal($event)"
+      ></button>
+    </header>
+    <form
+      #productForm="ngForm"
+      (ngSubmit)="onSubmit(product._id, productForm.value)"
+    >
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Nombre</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              ngModel
+              name="nombre"
+              [ngModel]="product.nombre"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Descripción</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              ngModel
+              name="descripcion"
+              [ngModel]="product.descripcion"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Categoría</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              ngModel
+              name="categoria"
+              [ngModel]="product.categoria"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Precio</label>
+          <div class="control">
+            <input
+              class="input"
+              type="number"
+              ngModel
+              name="precio"
+              [ngModel]="product.precio"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Cantidad</label>
+          <div class="control">
+            <input
+              class="input"
+              type="number"
+              ngModel
+              name="cantidad"
+              [ngModel]="product.cantidad"
+            />
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button
+          class="button is-primary"
+          type="submit"
+          class="{{ isEditing ? 'disable' : '' }}"
+        >
+          Save changes
+        </button>
+        <button class="button" (click)="onCloseModal($event)">Cancel</button>
+      </footer>
+    </form>
+  </div>
+</div>

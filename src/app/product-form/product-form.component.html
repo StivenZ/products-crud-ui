@@ -1,0 +1,42 @@
+<form
+  class="box"
+  #productForm="ngForm"
+  (ngSubmit)="onSubmit(productForm.value)"
+>
+  <div class="field">
+    <label class="label">Nombre</label>
+    <div class="control">
+      <input class="input" type="text" ngModel name="nombre" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Descripción</label>
+    <div class="control">
+      <input class="input" type="text" ngModel name="descripcion" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Categoría</label>
+    <div class="control">
+      <input class="input" type="text" ngModel name="categoria" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Precio</label>
+    <div class="control">
+      <input class="input" type="number" ngModel name="precio" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Cantidad</label>
+    <div class="control">
+      <input class="input" type="number" ngModel name="cantidad" />
+    </div>
+  </div>
+
+  <button class="button is-primary is-fullwidth">Crear producto</button>
+</form>

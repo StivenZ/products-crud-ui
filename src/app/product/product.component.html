@@ -1,0 +1,65 @@
+<div class="box mb-5 {{ isDeleted ? 'deletingProduct' : '' }}">
+  <app-edit-modal
+    [product]="productObject"
+    [isModalOpen]="isModalOpen"
+    (closeModal)="toggleModal()"
+    (needsRefresh)="refreshList()"
+  ></app-edit-modal>
+  <article class="media">
+    <div class="media-left">
+      <figure
+        class="
+          image
+          is-64x64 is-flex is-justify-content-center is-align-items-center
+          has-text-primary
+          is-size-6
+          has-text-weight-bold
+        "
+      >
+        ${{ productObject.precio }}
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{ productObject.nombre }}</strong>
+          <small class="has-text-info"
+            >&nbsp; @{{ productObject.categoria }}</small
+          >
+          <br />
+          {{ productObject.descripcion }}
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item has-text-link" aria-label="like">
+            <p class="has-text-dark has-text-weight-light">
+              {{ productObject.cantidad }}
+            </p>
+            <span class="icon">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a
+            class="level-item has-text-success"
+            aria-label="reply"
+            (click)="toggleModal()"
+          >
+            <span class="icon is-small">
+              <i class="fas fa-edit" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a
+            class="level-item has-text-danger"
+            aria-label="retweet"
+            (click)="deleteProduct(productObject._id)"
+          >
+            <span class="icon is-small">
+              <i class="fas fa-trash" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

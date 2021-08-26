@@ -1,0 +1,26 @@
+<div class="mainWrapper">
+  <p class="is-size-3 mb-5 mt-4 is-flex is-justify-content-center">
+    CRUD de productos
+  </p>
+  <div class="is-flex is-justify-content-space-evenly mt-5 contenContainer">
+    <div class="form-wrapper mb-5">
+      <p class="is-size-5 mb-5">Crea un nuevo producto</p>
+      <app-product-form
+        (needsRefresh)="refreshProductList($event)"
+        (loadingData)="setLoadingSpinner($event)"
+      ></app-product-form>
+    </div>
+    <div class="products-wrapper">
+      <p class="is-size-5 mb-5">Productos creados</p>
+      <div *ngIf="isLoading" class="is-flex is-justify-content-center">
+        <app-spinner></app-spinner>
+      </div>
+      <div *ngFor="let product of products">
+        <app-product
+          [productObject]="product"
+          (needsRefresh)="refreshProductList($event)"
+        ></app-product>
+      </div>
+    </div>
+  </div>
+</div>
